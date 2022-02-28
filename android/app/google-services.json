@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642005307941",
+    "project_id": "ade-boamah",
+    "storage_bucket": "ade-boamah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642005307941:android:7e7a9cb207ce2379b9e5cc",
+        "android_client_info": {
+          "package_name": "com.example.controllers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642005307941-8fju8b7rqq8gr6r2ogsrpsfbors3e0ln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9KLNxzt6tud5_M1ZoTEWVO9uhY_A0YnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642005307941-8fju8b7rqq8gr6r2ogsrpsfbors3e0ln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
