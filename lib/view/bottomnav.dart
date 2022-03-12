@@ -7,7 +7,8 @@ import 'homepage.dart';
 import 'welcome.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+  String userID;
+  BottomNav({Key? key, required this.userID}) : super(key: key);
 
   @override
   _BottomNavState createState() => _BottomNavState();
@@ -15,16 +16,22 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int currentindex = 0;
-  List pages = [
+
+   late List<Widget> pages;
+  @override
+  void initState() {
+    pages = [
     // Your screens must be listed here according to how you want them to display
     // New(),
     // New(),
     // New(),
     // New()
-    HomePage(),
+    HomePage(userID: widget.userID,),
 
     Text('Hi'),
   ];
+    super.initState();
+  }
   void _onItemTap(int selecteditems) {
     setState(
       () {
@@ -42,29 +49,29 @@ class _BottomNavState extends State<BottomNav> {
           bottomNavigationBar: BottomNavigationBar(
             onTap: _onItemTap,
             currentIndex: currentindex,
-            selectedItemColor: Colors.red,
+            selectedItemColor: Colors.blue,
             unselectedItemColor: Colors.black,
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: "Profile",
+                icon: Icon(Icons.home_filled),
+                label: "Home",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.chat),
                 label: "Second",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.group),
-                label: "Groups",
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.group),
+              //   label: "Groups",
+              // ),
               // BottomNavigationBarItem(
               //   icon: Icon(Icons.view_agenda),
               //   label: "Status",
               // ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.call),
-                label: "Calls",
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.call),
+              //   label: "Calls",
+              // ),
             ],
           ),
         ));

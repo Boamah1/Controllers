@@ -2,15 +2,22 @@ import 'package:controllers/view/signin.dart';
 import 'package:controllers/view/welcome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+
+FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+final User? user = auth.currentUser;
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  String userID;
+  HomePage({Key? key, required this.userID}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isloading = false;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,21 +35,6 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: Colors.black,
-            // leading: IconButton(
-            //   icon: const Icon(
-            //     Icons.arrow_back,
-            //     color: Colors.white,
-            //   ),
-            //   tooltip: " Back",
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (_) => const LoginPages(),
-            //       ),
-            //     );
-            //   },
-            // ),
             actions: [
               IconButton(
                 icon: const Icon(
@@ -85,12 +77,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onTap: () {
                         auth.signOut();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SigninPage(),
-                          ),
-                        );
+                        Navigator.pop(context);
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (_) => const SigninPage(),
+                        //   ),
+                        // );
                       },
                     ),
                   ];
